@@ -1,0 +1,28 @@
+participant selain
+participant palvelin
+
+note over selain
+Selain lähettää lomakkeelle syötetyn datan palvelimelle
+end note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over palvelin
+Palvelin pyytää selainta tekemään uuden HTTP GET -pyynnön
+osoitteeseen /notes
+end note
+
+palvelin->selain: HTTP 302 redirection to https://studies.cs.helsinki.fi/exampleapp/notes
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+
+note over selain
+Selain tekee HTTP-pyynnöt tyylitiedoston, JavaScript-koodin ja
+muistiinpanojen raakadatan lataamisen.
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin->selain: main.js
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin->selain: data.json

@@ -1,0 +1,11 @@
+participant selain
+participant palvelin
+
+note over selain
+Selaimen lataama koodi estää sivun uudelleen latauksen ja 
+selain lähettää lomakkeelle syötetyn datan palvelimelle JSON-merkkijonona
+end note
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+palvelin->selain: HTTP 201 The request has been fulfilled
