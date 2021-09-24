@@ -1,0 +1,47 @@
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "dabramov",
+  "password": "1243234345"
+}
+
+###
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "_id": "614af3ececc61f999a3acbdf",
+  "username": "dabramov",
+  "name": "Dan Abramov",
+  "password": "1243234345",
+  "__v": 0
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer 
+
+{
+  "_id": "5a422bc61b54a676234d17fc",
+  "title": "Type wars",
+  "author": "Robert C. Martin",
+  "url": "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
+  "likes": 2,
+  "__v": 0,
+  "userId": "614b4d49d6156ed917320ac1"
+}
+
+###
+DELETE http://localhost:3003/api/blogs/614b4cfdd6156ed917320ab8
+Authorization: bearer 
+
+###
+DELETE http://localhost:3003/api/users/614b0a2e736446e41327ca22
+
+###
+GET http://localhost:3003/api/blogs
+
+###
+GET http://localhost:3003/api/users
